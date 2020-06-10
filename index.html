@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="banner">
+            <h2>高雄旅遊資訊</h2>
+            <select id="select">
+                <option value="選擇區域" disabled selected>—請選擇行政區—</option>
+                <option value="所有區域">所有區域</option>
+            </select>
+        </div>
+        <div class="hotzone">
+            <p>熱門行政區</p>
+            <ul>
+                <li><input class="btn" type="button" value="苓雅區"></li>
+                <li><input class="btn" type="button" value="三民區"></li>
+                <li><input class="btn" type="button" value="新興區"></li>
+                <li><input class="btn" type="button" value="前鎮區"></li>
+            </ul>
+        </div>
+        <div class="content">
+            <a href="#title" class="go-down""></a>
+            <h3 class="title" id="title">所有區域</h3>
+            <ul class="intro" id="intro"></ul>
+            <ul class="pagination">
+                <li> < prev </li>
+                <li>next ></li>
+            </ul>
+        </div>
+        <div class="footer">
+            <h5>高雄旅遊網</h5>
+            <p>資料來源：高雄市政府</p>
+        </div>
+        <div class="go-top"><i class="fas fa-chevron-up"></i></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>
