@@ -71,10 +71,12 @@ function changeSelection(e) {
     } else { //只顯示前10個景點
         pagination.style.display = 'flex';
         var string = '';
-        for (i = 0; i < (card.length / 10); i++) {
+        for (i = 0; i < Math.ceil(card.length / 10); i++) {
             string += '<li><a href="#title" data-num="' + i + '" class="page">' + (i + 1) + '</a></li>';
         }
-        pagination.innerHTML = '<li> < prev </li>' + string + '<li>next ></li>';
+        var prev = '<li class="prev"><a href="#title" class="disable"> < prev </li>';
+        var next = '<li class="next"><a href="#title" data-num="1"> next > </li>';
+        pagination.innerHTML = prev + string + next;
 
         for (var i = 0; i < 10; i++) {
             card[i].style.display = 'block';
@@ -121,12 +123,27 @@ for (var i = 0; i < btnTotal; i++) {
 //分頁選單，一頁10個景點
 pagination.addEventListener('click', function (e) {
     var target = e.target.dataset.num;
+    var targetnum = parseInt(target);
     var card = document.querySelectorAll('.card');
     var total = card.length;
     var page = document.querySelectorAll('.page');
+    var prev = document.querySelector('.prev');
+    var next = document.querySelector('.next');
+    
     if (e.target.nodeName !== 'A') {
         return;
     } else {
+        if (target == 0){ //第一頁關閉prev按鈕
+            prev.innerHTML = '<a href="#title" class="disable"> < prev';
+        } else {
+            prev.innerHTML = '<a href="#title" data-num="' + ( targetnum - 1 ) + '"> < prev';
+        }
+        if (target == (Math.ceil(card.length / 10) - 1)){ //最後一頁關閉next按鈕
+            next.innerHTML = '<a href="#title" class="disable"> next >';
+        } else {
+            next.innerHTML = '<a href="#title" data-num="' + ( targetnum + 1 ) + '"> next >';
+        }
+
         for (var i = 0; i < total; i++) {
             card[i].style.display = 'none';
         }
@@ -142,7 +159,7 @@ pagination.addEventListener('click', function (e) {
         for (var i = 0; i < page.length; i++) {
             page[i].style.color = '#4A4A4A';
         }
-        page[target].style.color = '#559AC8';
+        page[target].style.color = '#559AC8'; //選取到的頁面改成藍色標記
     }
 }, false)
 

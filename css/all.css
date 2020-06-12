@@ -408,6 +408,15 @@ select {
   color: #4A4A4A;
   padding: 0 10px;
 }
+.content .pagination li.prev a, .content .pagination li.next a {
+  color: #4A4A4A;
+  text-decoration: none;
+}
+.content .pagination li.prev a.disable, .content .pagination li.next a.disable {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
 .content .pagination li .page {
   color: #4A4A4A;
   text-decoration: none;
