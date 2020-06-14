@@ -4,6 +4,7 @@ var intro = document.querySelector('#intro');
 var title = document.querySelector('.title');
 var btn = document.querySelectorAll('.btn');
 var pagination = document.querySelector('.pagination');
+var goDown = document.querySelector('.go-down');
 var goTop = document.querySelector('.go-top');
 
 var xhr = new XMLHttpRequest();
@@ -164,17 +165,16 @@ pagination.addEventListener('click', function (e) {
 }, false)
 
 // 點擊滑到介紹區
-$(document).ready(function () {
-    $('.go-down').click(function (e) {
-        e.preventDefault();
-        var target = $(this).attr('href');
-        var targetTop = $(target).offset().top;
-        $('html, body').animate({ scrollTop: targetTop }, 1000);
+goDown.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: title.offsetTop,
+        behavior: 'smooth',
     });
-});
+})
 
 // go top button
-goTop.addEventListener('click', function (e) {
+goTop.addEventListener('click', function () {
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
