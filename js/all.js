@@ -18,7 +18,7 @@ xhr.onload = () => {
 }
 
 //select option
-let selectOption = () =>{
+const selectOption = () =>{
     //選取出高雄所有區
     let total = data.length;
     let zoneAll = [];
@@ -39,7 +39,7 @@ let selectOption = () =>{
 }
 
 //顯示景點
-let changeSelection = e => {
+const changeSelection = e => {
     let total = e.length;
     for (let i = 0; i < total; i++) {
         let introCard = document.createElement('li');
