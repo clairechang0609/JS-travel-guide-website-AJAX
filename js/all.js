@@ -9,10 +9,10 @@ const goDown = document.querySelector('.go-down');
 const goTop = document.querySelector('.go-top');
 
 const xhr = new XMLHttpRequest();
-xhr.open('get', 'https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97', true);
+xhr.open('get', 'https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json', true);
 xhr.send(null);
 xhr.onload = () => {
-    data = JSON.parse(xhr.responseText).result.records;
+    data = JSON.parse(xhr.responseText).result.records; //撈回來的資料是字串，需轉為陣列
     selectOption(); //一開始載入選單
     changeSelection(data); //一開始載入全部景點
 }
